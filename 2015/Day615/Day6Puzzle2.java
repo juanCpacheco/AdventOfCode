@@ -6,11 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Day6 
+//Day6 Probably a Fire Hazard
+public class Day6Puzzle2
 {
-    //Se desea saber cuantas luces quedaron encendidas al seguir las instrucciones del input
-    //donde Turn on: encender, Turn off: apagar y Toogle: enciende apagadas y apaga encendidas.
-    private static int puzzle1(BufferedReader reader) throws IOException 
+    //Se desea saber el brllo total al seguir las instrucciones del input (una luz tiene brillo de 0 en adelante)
+    //donde Turn on: aumenta el brillo en 1, Turn off: disminuye el brillo en 1 y Toogle: aumenta el brillo en 2.
+    private static int puzzle2(BufferedReader reader) throws IOException 
     {
         int contador = 0;
         ArrayList<Luz> luces = new ArrayList<Luz>();
@@ -66,23 +67,23 @@ public class Day6
     private static class Luz
     {
         private int x, y;
-        private Boolean lit;
+        private int lit;
 
         public Luz(int x, int y)
         {
             this.x = x;
             this.y = y;
-            this.lit = false;
+            this.lit = 0;
         }
-        public void setLit()
+        public void increase()
         {
-            this.lit = true;
+            this.lit++;
         }
-        public void setOff()
+        public void decrease()
         {
-            this.lit = false;
+            this.lit--;
         }
-        public boolean getLit()
+        public int getLit()
         {
             return this.lit;
         }
@@ -96,60 +97,39 @@ public class Day6
         }
     }
 
-    //Clase que interpreta una instruccion, acctualiza el estado de una luz y el contador de luces encendidas
+    //Clase que interpreta una instruccion, actualiza el brillo de una luz y el contador de brillo total.
     public static int interpretar(Luz actual, String instruccion, int contador)
     {
         switch(instruccion)
         {
             case "turn on":
-                if(!actual.getLit())
-                {  
-                    actual.setLit();
-                    contador++;
-                }
+                actual.increase();
+                contador++;
                 break;
             case "turn off":
-                if(actual.getLit())
+                if(actual.getLit()!=0)
                 {
-                    actual.setOff();
+                    actual.decrease();
                     contador--;
                 }
                 break;
             case "toggle":
-                if(actual.getLit())
-                {
-                    actual.setOff();
-                    contador--;
-                }
-                else
-                {
-                    actual.setLit();
-                    contador++;
-                }
+                actual.increase();
+                actual.increase();
+                contador++;
+                contador++;
                 break;
         }
         return contador;
     }
-    /*
-    public static int contarLit(ArrayList<Luz> luces)
-    {
-        int contador = 0;
-        for(Luz actual : luces)
-        {
-            if(actual.getLit())
-                contador++;
-        }
-        return contador;
 
-    }
-    */
     public static void main(String[] args) throws IOException
     {
         File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day6\\input.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
-        int sol1 = puzzle1(reader);
-        System.out.println("Luces prendidas: " + sol1);
+        int sol1 = puzzle2(reader);
+        System.out.println("Brillo total incrementado : " + sol1);
     }
 
 }
