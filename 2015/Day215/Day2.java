@@ -102,7 +102,7 @@ public class Day2
 
 public static void main(String[] args) throws IOException
  {
-     File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day2\\input.txt");
+     File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day215\\input.txt");
      
      int areaTotal = puzzle1(file);
      System.out.println("Area total: " + areaTotal);

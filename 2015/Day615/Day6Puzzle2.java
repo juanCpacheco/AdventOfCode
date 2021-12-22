@@ -125,7 +125,7 @@ public class Day6Puzzle2
 
     public static void main(String[] args) throws IOException
     {
-        File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day6\\input.txt");
+        File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day615\\input.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
         int sol1 = puzzle2(reader);

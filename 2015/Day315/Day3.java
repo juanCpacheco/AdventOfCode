@@ -101,7 +101,7 @@ public class Day3
     }
     public static void main(String[] args) throws Exception
     {
-        File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day3\\input.txt");
+        File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day315\\input.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String data = reader.readLine();
         reader.close();

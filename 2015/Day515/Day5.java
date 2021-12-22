@@ -105,7 +105,7 @@ public class Day5
 
     public static void main(String[] args) throws IOException
     {
-        File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day5\\input.txt");
+        File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day515\\input.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
         int sol1 = puzzle1(reader);
         System.out.println("Cadenas nice puzzle1: " + sol1);
