@@ -13,15 +13,15 @@ public class Day3 {
     private static int puzzle1(File file) throws IOException{
         int posibles = 0;
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        String triangulo = reader.readLine();
-        while(triangulo != null){
-            triangulo = triangulo.replace("    ", "  ");
-            triangulo = triangulo.replace("   ", "  ");
-            String[] ladosString = triangulo.split("  ");
+        String triangulo = reader.readLine().trim();
+        while(triangulo != null)
+        {
+            triangulo = triangulo.trim();
+            String[] ladosString = triangulo.split("\\s+");
             int[] lados1 = new int[3];
-            lados1[0] = Integer.parseInt(ladosString[1]);
-            lados1[1] = Integer.parseInt(ladosString[2]);
-            lados1[2] = Integer.parseInt(ladosString[3]);
+            lados1[0] = Integer.parseInt(ladosString[0]);
+            lados1[1] = Integer.parseInt(ladosString[1]);
+            lados1[2] = Integer.parseInt(ladosString[2]);
             if(lados1[0]<lados1[1]+lados1[2] && lados1[1]<lados1[0]+lados1[2] && lados1[2]<lados1[0]+lados1[1])
                 posibles++;
             triangulo = reader.readLine();
@@ -37,15 +37,14 @@ public class Day3 {
         ArrayList<String> columna1 = new ArrayList<String>();
         ArrayList<String> columna2 = new ArrayList<String>();
         ArrayList<String> columna3 = new ArrayList<String>();
-        String linea = reader.readLine();
+        String linea = reader.readLine().trim();
         while(linea != null)
         {
-            linea = linea.replace("    ", "  ");
-            linea = linea.replace("   ", "  ");
-            String[] ladosString = linea.split("  ");
-            columna1.add(ladosString[1]);
-            columna2.add(ladosString[2]);
-            columna3.add(ladosString[3]);
+            linea = linea.trim();
+            String[] ladosString = linea.split("\\s+");
+            columna1.add(ladosString[0]);
+            columna2.add(ladosString[1]);
+            columna3.add(ladosString[2]);
             linea = reader.readLine();
         }
         for(int i = 0; i < columna1.size(); i+=3)

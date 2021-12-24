@@ -131,19 +131,7 @@ public class Day6
         }
         return contador;
     }
-    /*
-    public static int contarLit(ArrayList<Luz> luces)
-    {
-        int contador = 0;
-        for(Luz actual : luces)
-        {
-            if(actual.getLit())
-                contador++;
-        }
-        return contador;
-
-    }
-    */
+    
     public static void main(String[] args) throws IOException
     {
         File file = new File("C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day615\\input.txt");
