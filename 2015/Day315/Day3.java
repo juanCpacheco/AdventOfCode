@@ -9,8 +9,9 @@ import java.util.Set;
 //Day3 Perfectly Spherical Houses in a Vacuum
 public class Day3
 {
+    //Se desea conocer por cuantos puntos paso santa al menos una vez segun las instrucciones del input
     //Se podria hacer uso de la clase Point2d de java.awt.geom para crear los puntos pero no funciona.
-    //Creamos una set hash de enteros con los id de cada punto
+    //Creamos una set hash de Strings con los id de cada punto
     public static int puzzle1(String data)
     {
         Set<String> tabla = new HashSet<String>();
@@ -26,6 +27,7 @@ public class Day3
         return tabla.size();
     }
 
+    //Se desea conocer por cuantos puntos pasaron santa o el robot al menos una vez segun las instrucciones del input
     //hacemos lo mismo del puzzle 1 pero turnamos los input entre santa y el robot verificando si i es par o impar
     public static int puzzle2(String data)
     {
