@@ -4,11 +4,9 @@
 archivo = open('C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day215\\input.txt')
 total = 0
 for line in archivo.readlines():
-    dimensiones = line.split('x')
-    dimensiones = list(map(int, dimensiones))
-    areas = dimensiones[0]*dimensiones[1], dimensiones[0]*dimensiones[2], dimensiones[1]*dimensiones[2]
-    principal = 2*(areas[0] + areas[1] + areas[2])
-    total  += principal + min(areas)
+    l,w,h = list(map(int, line.split('x')))
+    area1,area2,area3 = l*w, l*h, w*h
+    total  += 2*(area1 + area2 + area3) + min(area1,area2,area3)
 archivo.close()
 print("Area total: ", total)
 
@@ -16,11 +14,8 @@ print("Area total: ", total)
 archivo = open('C:\\Users\\JuanK\\Documents\\AdventOfCode\\2015\\Day215\\input.txt')
 total = 0
 for line in archivo.readlines():
-    dimensiones = line.split('x')
-    dimensiones = list(map(int, dimensiones))
-    dimensiones.sort()
-    inicial = 2*(dimensiones[0] + dimensiones[1])
-    plus = dimensiones[0] * dimensiones[1] * dimensiones[2]
-    total += inicial + plus
+    dimensiones = list(map(int, line.split('x')))
+    a,b,c = sorted(dimensiones)
+    total += 2*(a+b) + a*b*c
 archivo.close()
 print("Cinta total: ", total)

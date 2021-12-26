@@ -1,4 +1,3 @@
-
 #Day1 Not Quite Lisp
 
 #Reterna el valor de la posicion actual en la que termina Santa comenzando en 0, aumentando 1 en '(' y disminuyendo 1 en ')'
