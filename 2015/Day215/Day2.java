@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 //Day2 I Was Told There Would Be No Math
 public class Day2 
@@ -18,24 +20,18 @@ public class Day2
         String linea = reader.readLine();
         while(linea != null)
         {
-            //Se divide la linea para identificar las dimensiones
             String[] dimensiones = linea.split("x");
             int l = Integer.parseInt(dimensiones[0]);
             int w = Integer.parseInt(dimensiones[1]);
             int h = Integer.parseInt(dimensiones[2]);
             
-            //Se calcula el area de las caras y se añaden a un arreglo
-            int areaCara1 = l*w;
-            int areaCara2 = w*h;
-            int areaCara3 = h*l;
-            ArrayList<Integer> areas = new ArrayList<Integer>();
-            areas.add(areaCara1);
-            areas.add(areaCara2);
-            areas.add(areaCara3);
-
-            //Se calcula el area total necesitada para la caja
-            int areaInicial = 2*(areaCara1 + areaCara2 + areaCara3);
-            int areaExtra = areas.get(min(areas));
+            List<Integer> areas = new ArrayList<Integer>();
+            areas.add(l*w);
+            areas.add(h*w);
+            areas.add(h*l);
+            Collections.sort(areas);
+            int areaInicial = 2*(areas.get(0) + areas.get(1) + areas.get(2));
+            int areaExtra = areas.get(0);
             int areaTotal = areaInicial + areaExtra;
 
             resp1 += areaTotal;
@@ -54,7 +50,6 @@ public class Day2
         String linea = reader.readLine();
         while(linea != null)
         {
-            //Se divide la linea para identificar las dimensiones
             String[] dimensiones = linea.split("x");
             int l = Integer.parseInt(dimensiones[0]);
             int w = Integer.parseInt(dimensiones[1]);
@@ -64,16 +59,9 @@ public class Day2
             dim.add(l);
             dim.add(w);
             dim.add(h);
-            //Se calcula el minimo de las dimensiones y se elimina de la lista X2
-            //Tambien podria usar API stream que toma un Array y retorna una secuencia y cuenta con metodos como min()
-            int posMin1 = min(dim);
-            int min1 = dim.get(posMin1);
-            dim.remove(posMin1);
-            int posMin2 = min(dim);
-            int min2 = dim.get(posMin2);
-            dim.remove(posMin2);
 
-            int longInicial = 2*(min1 + min2);
+            Collections.sort(dim);
+            int longInicial = 2*(dim.get(0) + dim.get(1));
             int longExtra = l*w*h;
             int longTotal = longInicial + longExtra;
 
@@ -84,21 +72,6 @@ public class Day2
         return resp2;
     }
 
-    //Retorna la pisicion del valor minimo en un arreglo de enteros
-    public static int min(ArrayList<Integer> lista)
-    {
-        int pos = 0;
-        int min = lista.get(0);
-        for(int i = 1; i < lista.size(); i++)
-        {
-            if(lista.get(i)<min)
-            {
-                min = lista.get(i);
-                pos = i;
-            }
-        }
-        return pos;
-    }
 
 public static void main(String[] args) throws IOException
  {
