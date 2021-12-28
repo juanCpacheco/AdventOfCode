@@ -6,7 +6,10 @@ def getName():
 print("Hello world")
 print(getName())
 
-luces = [[0]*1000 for i in range(1000)]
-for fila in range(0, 5):
-        for luz in luces[fila][0:5]:
-            print(luz)
+palabra = 'zixmtkozy'
+decodificada = ''
+for letra in palabra:
+    letra_unicode = ord(letra)-ord('a')
+    nuevaLetra_unicode = (letra_unicode + 343)%26
+    decodificada += chr(ord('a')+nuevaLetra_unicode)
+print(decodificada)
