@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Day3 {
 
-    //Se dezsea conocer el numero de triangulos posibles del archivo donde cada linea indica los 3 lados1 del triangulo.
+    //Se desea conocer el numero de triangulos posibles del archivo donde cada linea indica los 3 lados1 del triangulo.
     //Un triangulo es posible si la suma de dos lados1 cualquiera es mayor al tercer lado.
     private static int puzzle1(File file) throws IOException{
         int posibles = 0;
