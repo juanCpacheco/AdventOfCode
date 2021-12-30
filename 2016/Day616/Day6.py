@@ -1,4 +1,5 @@
 #Day6 Probably a Fire Hazard
+#Se desea conocer las claves secretas conformadas por la letra que mas y menos se repite respectivamente de cada columna del input 
 
 columnas = [[] for i in range(8)]
 

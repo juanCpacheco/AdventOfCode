@@ -9,8 +9,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+//Day6 Probably a Fire Hazard
+
 public class Day6 {
     
+    //Se desea conocer las claves secretas conformadas por la letra que mas y menos se repite respectivamente de cada columna del input 
     public static String[] puzzles(BufferedReader reader) throws IOException 
     {
         String[] respuesta = new String[2];
